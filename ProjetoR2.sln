@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rei_cadastros", "..\Reitech
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rei_bll", "..\Reitech2\Reitech\Fontes\CSHARP\desenvolvimento\rei_bll\rei_bll.csproj", "{6D96737D-59B2-4D4B-99D3-257E2DE558C7}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "rei_identityserver", "Esperanto\rei_integradorweb\rei_identityserver\rei_identityserver.csproj", "{B445B7C6-E97E-41F3-95DB-6867EC11E1AA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "rei_esperantolib", "Esperanto\rei_integradorweb\rei_esperantolib\rei_esperantolib.csproj", "{4A042090-E6B8-4818-A9F3-4E52939973FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -125,6 +129,30 @@ Global
 		{6D96737D-59B2-4D4B-99D3-257E2DE558C7}.Release|x64.Build.0 = Release|x64
 		{6D96737D-59B2-4D4B-99D3-257E2DE558C7}.Release|x86.ActiveCfg = Release|x86
 		{6D96737D-59B2-4D4B-99D3-257E2DE558C7}.Release|x86.Build.0 = Release|x86
+		{B445B7C6-E97E-41F3-95DB-6867EC11E1AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B445B7C6-E97E-41F3-95DB-6867EC11E1AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B445B7C6-E97E-41F3-95DB-6867EC11E1AA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B445B7C6-E97E-41F3-95DB-6867EC11E1AA}.Debug|x64.Build.0 = Debug|Any CPU
+		{B445B7C6-E97E-41F3-95DB-6867EC11E1AA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B445B7C6-E97E-41F3-95DB-6867EC11E1AA}.Debug|x86.Build.0 = Debug|Any CPU
+		{B445B7C6-E97E-41F3-95DB-6867EC11E1AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B445B7C6-E97E-41F3-95DB-6867EC11E1AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B445B7C6-E97E-41F3-95DB-6867EC11E1AA}.Release|x64.ActiveCfg = Release|Any CPU
+		{B445B7C6-E97E-41F3-95DB-6867EC11E1AA}.Release|x64.Build.0 = Release|Any CPU
+		{B445B7C6-E97E-41F3-95DB-6867EC11E1AA}.Release|x86.ActiveCfg = Release|Any CPU
+		{B445B7C6-E97E-41F3-95DB-6867EC11E1AA}.Release|x86.Build.0 = Release|Any CPU
+		{4A042090-E6B8-4818-A9F3-4E52939973FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A042090-E6B8-4818-A9F3-4E52939973FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A042090-E6B8-4818-A9F3-4E52939973FB}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4A042090-E6B8-4818-A9F3-4E52939973FB}.Debug|x64.Build.0 = Debug|Any CPU
+		{4A042090-E6B8-4818-A9F3-4E52939973FB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4A042090-E6B8-4818-A9F3-4E52939973FB}.Debug|x86.Build.0 = Debug|Any CPU
+		{4A042090-E6B8-4818-A9F3-4E52939973FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A042090-E6B8-4818-A9F3-4E52939973FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A042090-E6B8-4818-A9F3-4E52939973FB}.Release|x64.ActiveCfg = Release|Any CPU
+		{4A042090-E6B8-4818-A9F3-4E52939973FB}.Release|x64.Build.0 = Release|Any CPU
+		{4A042090-E6B8-4818-A9F3-4E52939973FB}.Release|x86.ActiveCfg = Release|Any CPU
+		{4A042090-E6B8-4818-A9F3-4E52939973FB}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
