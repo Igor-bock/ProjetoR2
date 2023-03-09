@@ -7,6 +7,7 @@ namespace BlazorIdentity.Pages;
 public partial class EtiquetaFormulario
 {
     [Inject]
+    public HttpClient C_HttpClient { get; set; }
     public IEtiquetaDataService C_EtiquetaDataService { get; set; }
 
     public Etiqueta? C_Etiqueta { get; set; }
@@ -18,6 +19,11 @@ public partial class EtiquetaFormulario
 
     public string c_CodEtiqueta { get; set; }
     public string c_CodSetor { get; set; }
+
+    protected override void OnInitialized()
+    {
+        C_EtiquetaDataService = new EtiquetaDataService(C_HttpClient);
+    }
 
     public async Task c_BuscaEtiqueta(string p_codigo_etiqueta)
     {
