@@ -1,0 +1,72 @@
+﻿@page "/etiquetaformulario"
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@attribute [Authorize]
+<PageTitle>@Titulo</PageTitle>
+
+<HeadContent>
+    <meta name="description" content="@Descricao" />
+</HeadContent>
+
+<h2>Etiqueta</h2>
+
+<section>
+
+    <div class="col-3">
+        <input type="text" placeholder="Buscar Etiqueta" @bind="c_CodEtiqueta">
+        <button @onclick="@(async () => await c_BuscaEtiqueta(c_CodEtiqueta))" class="btn btn-secondary">Pesquisar</button>
+    </div>
+
+    @if (C_Etiqueta != null)
+    {
+        //<SetorModal C_Etiqueta="_etiquetaMovida"></SetorModal>
+
+        <div class="col-3 p-2">
+            <input type="text" placeholder="Mover" @bind="c_CodSetor">
+            <button @onclick="async () => await c_MoverEtiqueta(c_CodSetor)" class="btn btn-secondary">Mover</button>
+        </div>
+        <h1 class="page-title">Formulario da etiqueta de com o código @C_Etiqueta?.cd_codigo</h1>
+        <br />
+        <div class="col-12 row">
+            <div class="col-2 text-center">
+                <img src="https://edimais.vtexassets.com/arquivos/ids/162666/Etiqueta-para-Preco-13-x-9-cm-100-unidades--2-.png?v=637596335657370000" class="rounded-circle img-fluid" />
+            </div>
+            <div class="col-10 row">
+                <div class="col-12 col-xxl-8">
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Nome do cliente</label>
+                        <div class="col-sm-8">
+                            <label type="text" class="form-control-plaintext">@C_Etiqueta?.ds_cliente</label>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Valor por metro quadrado</label>
+                        <div class="col-sm-8">
+                            <label type="text" readonly class="form-control-plaintext">@C_Etiqueta?.vl_m2</label>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Nome do setor</label>
+                        <div class="col-sm-8">
+                            <label type="text" readonly class="form-control-plaintext">@C_Etiqueta?.ds_setor</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @if (_etiquetaMovida != null)
+        {
+            <div class="col-10 row">
+                <div class="col-12 col-xxl-8">
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Resultado</label>
+                        <div class="col-sm-8">
+                            <p>@_etiquetaMovida?.ErroMensagem</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
+    }
+</section>
