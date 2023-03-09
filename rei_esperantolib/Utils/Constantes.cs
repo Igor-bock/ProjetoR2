@@ -98,7 +98,7 @@ public class Constantes
 
     //public static string C_ENDERECO_BASE_IDENTITY = "https://localhost:9001";
     //public const string C_ENDERECO_BASE_IDENTITY = "https://9f15-179-109-192-138.sa.ngrok.io";
-    public const string C_ENDERECO_BASE_IDENTITY = "https://localhost:5001";
+    public const string C_ENDERECO_BASE_IDENTITY = "https://d655-179-109-192-138.sa.ngrok.io/";//"https://localhost:5001";
     public const string C_ENDPOINT_USUARIOS = "api/usuario";
     public const string C_ENDPOINT_ROLES = "api/roles";
 

@@ -1,8 +1,3 @@
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using ReiglassWCF;
-using System.Text;
-
 var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
 
@@ -56,7 +51,7 @@ builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer("Bearer", opt =>
     {
         opt.RequireHttpsMetadata = false;
-        opt.Authority = "https://localhost:5001";
+        opt.Authority = "https://d655-179-109-192-138.sa.ngrok.io/";//"https://localhost:5001";
         opt.Audience = "esperanto";
     });
 

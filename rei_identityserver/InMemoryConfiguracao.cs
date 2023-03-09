@@ -118,9 +118,10 @@ public static class InMemoryConfiguracao
                 {
                     IdentityServerConstants.StandardScopes.OpenId,
                     IdentityServerConstants.StandardScopes.Profile,
+                    IdentityServerConstants.StandardScopes.OfflineAccess,
                     "esperanto"
                 },
-                RedirectUris = { "https://localhost:7178/authentication/login-callback" },
+                RedirectUris = { "https://localhost:7178/authentication/login-callback", "reimaui://" },
                 PostLogoutRedirectUris = { "https://localhost:7178/authentication/logout-callback" }
             },
             new Client

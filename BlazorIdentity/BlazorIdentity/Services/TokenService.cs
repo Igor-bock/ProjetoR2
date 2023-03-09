@@ -17,7 +17,8 @@ public class TokenService
     {
         try
         {
-            var m_discovery = await c_HttpClient.GetDiscoveryDocumentAsync("https://localhost:5001/.well-known/openid-configuration");
+            var m_discovery = await c_HttpClient.GetDiscoveryDocumentAsync("https://d655-179-109-192-138.sa.ngrok.io/.well-known/openid-configuration");
+            //("https://localhost:5001/.well-known/openid-configuration");
 
             if (m_discovery.IsError)
                 throw new ApplicationException(m_discovery.Error);
