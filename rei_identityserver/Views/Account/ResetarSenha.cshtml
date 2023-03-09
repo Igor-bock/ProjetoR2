@@ -1,0 +1,45 @@
+﻿@model rei_esperantolib.Models.ResetarSenhaModel
+
+<div class="container">
+	<div class="row homepage">
+		<div class="col-sm"></div>
+		<div class="col-sm w-100">
+			<h1 class="text-center mb-5"><img src="~/Logotipo_R2.png" alt="R2" width="256" heigth="256" class="" /></h1>
+		</div>
+		<div class="col-sm"></div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm"></div>
+		<div class="col-sm">
+			<div class="card">
+				<div class="card-header">
+					<h4 class="text-center">Alterar Senha</h4>
+				</div>
+
+				<div class="card-body">
+					@using(Html.BeginForm("CM_ResetarSenha", "Account", FormMethod.Post))
+					{
+						<div class="form-group mb-2">
+							@Html.LabelFor(a => a.C_Senha, "Senha", new { @class = "label-control" })
+							@Html.TextBoxFor(a => a.C_Senha, null, new { @class = "form-control", @placeholder = "Senha", @type = "password" })
+							@Html.ValidationMessageFor(a => a.C_Senha, string.Empty, new { @class = "text-danger" })
+						</div>
+						<div class="form-group mb-2">
+							@Html.LabelFor(a => a.C_ConfirmaSenha, "Confirma Senha", new { @class = "label-control" })
+							@Html.TextBoxFor(a => a.C_ConfirmaSenha, null, new { @class = "form-control", @placeholder = "Confirma Senha", @type = "password" })
+							@Html.ValidationMessageFor(a => a.C_ConfirmaSenha, string.Empty, new { @class = "text-danger" })
+						</div>
+						@Html.HiddenFor(a => a.C_Token, new { @value = Model.C_Token })
+						@Html.HiddenFor(a => a.C_Email, new { @value = Model.C_Email })
+
+						<div class="form-group d-flex justify-content-center mt-3">
+							<input type="submit" value="Enviar" class="btn btn-primary w-50" />
+						</div>
+					}
+				</div>
+			</div>
+		</div>
+		<div class="col-sm"></div>
+	</div>
+</div>

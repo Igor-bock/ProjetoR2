@@ -1,0 +1,40 @@
+﻿@model rei_esperantolib.Models.AutenticacaoDoisFatoresModel
+
+<div class="container">
+	<div class="row homepage">
+		<div class="col-sm"></div>
+		<div class="col-sm w-100">
+			<h1 class="text-center mb-5"><img src="~/Logotipo_R2.png" alt="R2" width="256" heigth="256" class="" /></h1>
+		</div>
+		<div class="col-sm"></div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm"></div>
+		<div class="col-sm">
+			<div class="card">
+				<div class="card-header">
+					<h4 class="text-center">Código pelo e-mail</h4>
+				</div>
+
+				<div class="card-body">
+					@using(Html.BeginForm("CM_LoginDoisFatores", "Account", FormMethod.Post))
+					{
+						<div class="form-group mb-2">
+							@Html.LabelFor(a => a.C_CodigoDoisFatores, "Código", new { @class = "label-control" })
+							@Html.TextBoxFor(a => a.C_CodigoDoisFatores, null, new { @class = "form-control", @placeholder = "Código" })
+							@Html.ValidationMessageFor(a => a.C_CodigoDoisFatores, string.Empty, new { @class = "text-danger" })
+						</div>
+						@Html.HiddenFor(a => a.C_Lembrar)
+						@Html.HiddenFor(a => a.C_UrlRetorno, new { @Value = TempData["UrlRetorno"] })
+
+						<div class="form-group d-flex justify-content-center mt-3">
+							<input type="submit" value="Enviar" class="btn btn-primary w-50" />
+						</div>
+					}
+				</div>
+			</div>
+		</div>
+		<div class="col-sm"></div>
+	</div>
+</div>

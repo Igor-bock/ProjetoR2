@@ -1,0 +1,73 @@
+﻿@model rei_esperantolib.Models.ConnectionString
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm"></div>
+		<div class="col-sm d-flex justify-content-center flex-column">
+			<h2 class="text-center mb-5">Connection String</h2>
+
+			@if (TempData["Alerta"] != null)
+			{
+				<div class="alert alert-success w-100 text-center">@TempData["Alerta"]</div>
+			}
+			@if (TempData["Erro"] != null)
+			{
+				<div class="alert alert-danger w-100 text-center">@TempData["Erro"]</div>
+			}
+		</div>
+		<div class="col-sm"></div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm"></div>
+		<div class="col-sm">
+			<div class="card" style="margin-bottom: 50px;">
+				<div class="card-header text-center">
+					Alterar conexão
+				</div>
+
+				<div class="card-body">
+
+					@using (Html.BeginForm("CM_AlterarConnectionString", "ConnectionString", FormMethod.Post))
+					{
+					<div class="form-group mb-2">
+						@Html.LabelFor(a => a.Host, "Host", new { @class = "label-control" })
+						@Html.TextBoxFor(a => a.Host, null, new { @class = "form-control", @placeholder = "Host" })
+						@Html.ValidationMessageFor(a => a.Host, string.Empty, new { @class = "text-danger" })
+					</div>
+					<div class="form-group mb-2">
+						@Html.LabelFor(a => a.Port, "Port", new { @class = "label-control" })
+						@Html.TextBoxFor(a => a.Port, null, new { @class = "form-control", @placeholder = "Port" })
+						@Html.ValidationMessageFor(a => a.Port, string.Empty, new { @class = "text-danger" })
+					</div>
+					<div class="form-group mb-2">
+						@Html.LabelFor(a => a.Database, "Database", new { @class = "label-control" })
+						@Html.TextBoxFor(a => a.Database, null, new { @class = "form-control", @placeholder = "Database" })
+						@Html.ValidationMessageFor(a => a.Database, string.Empty, new { @class = "text-danger" })
+					</div>
+					<div class="form-group mb-2">
+						@Html.LabelFor(a => a.Id, "Id", new { @class = "label-control" })
+						@Html.TextBoxFor(a => a.Id, null, new { @class = "form-control", @placeholder = "Id" })
+						@Html.ValidationMessageFor(a => a.Id, string.Empty, new { @class = "text-danger" })
+					</div>
+					<div class="form-group mb-2">
+						@Html.LabelFor(a => a.Password, "Password", new { @class = "label-control" })
+						@Html.TextBoxFor(a => a.Password, null, new { @class = "form-control", @placeholder = "Password" })
+						@Html.ValidationMessageFor(a => a.Password, string.Empty, new { @class = "text-danger" })
+					</div>
+					<div class="form-group mb-2">
+						@Html.LabelFor(a => a.Application, "Application", new { @class = "label-control" })
+						@Html.TextBoxFor(a => a.Application, null, new { @class = "form-control", @placeholder = "Application" })
+						@Html.ValidationMessageFor(a => a.Application, string.Empty, new { @class = "text-danger" })
+					</div>
+
+					<div class="form-group d-flex justify-content-center">
+						<input class="btn btn-success w-75 mt-4" type="submit" value="Salvar"/>
+					</div>
+					}
+				</div>
+			</div>
+		</div>
+		<div class="col-sm"></div>
+	</div>
+</div>

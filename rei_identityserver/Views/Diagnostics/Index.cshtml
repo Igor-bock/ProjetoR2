@@ -1,0 +1,60 @@
+@model rei_identityserver.Quickstart.Diagnostics.DiagnosticsViewModel
+
+<div class="container">
+    <div class="row mb-5">
+        <div class="col-sm">
+            <div class="card w-100">
+                <div class="card-header">
+                    <h2>Claims</h2>
+                </div>
+                <div class="card-body">
+                    <dl>
+                        @foreach (var claim in Model.AuthenticateResult.Principal.Claims)
+                        {
+                            <dt>@claim.Type</dt>
+                            <dd>@claim.Value</dd>
+                        }
+                    </dl>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-sm">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Propriedades</h2>
+                </div>
+                <div class="card-body">
+                    <dl>
+                        @foreach (var prop in Model.AuthenticateResult.Properties.Items)
+                        {
+                            <dt>@prop.Key</dt>
+                            <dd>@prop.Value</dd>
+                        }
+                        @if (Model.Clients.Any())
+                        {
+                            <dt>Clients</dt>
+                            <dd>
+                            @{
+                                var clients = Model.Clients.ToArray();
+                                for(var i = 0; i < clients.Length; i++)
+                                {
+                                    <text>@clients[i]</text>
+                                    if (i < clients.Length - 1)
+                                    {
+                                        <text>, </text>
+                                    }
+                                }
+                            }
+                            </dd>
+                        }
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
