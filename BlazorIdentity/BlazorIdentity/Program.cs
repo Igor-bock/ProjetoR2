@@ -1,4 +1,5 @@
 using BlazorIdentity;
+using BlazorIdentity.Services;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
@@ -9,6 +10,7 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:9001") });
 
+builder.Services.AddHttpClient<IEtiquetaDataService, EtiquetaDataService>(client => client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress));
 builder.Services.AddHttpClient(Microsoft.Extensions.Options.Options.DefaultName, cl =>
 {
     cl.BaseAddress = new Uri("https://localhost:9001/r2glass/");
