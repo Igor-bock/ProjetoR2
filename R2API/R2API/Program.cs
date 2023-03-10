@@ -51,7 +51,7 @@ builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer("Bearer", opt =>
     {
         opt.RequireHttpsMetadata = false;
-        opt.Authority = "https://d655-179-109-192-138.sa.ngrok.io/";//"https://localhost:5001";
+        opt.Authority = "https://localhost:5001";//"https://d655-179-109-192-138.sa.ngrok.io/"; 
         opt.Audience = "esperanto";
     });
 

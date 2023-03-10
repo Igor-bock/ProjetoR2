@@ -29,8 +29,12 @@ public static class MauiProgram
 		builder.Services.AddTransient<WebAuthenticationBrowser>();
 		builder.Services.AddTransient(sp => new OidcClient(new OidcClientOptions
 		{
-			Authority = "https://d655-179-109-192-138.sa.ngrok.io/",//"https://localhost:5001",
-			ClientId = "rei_blazor",
+#if ANDROID
+			Authority = "https://d655-179-109-192-138.sa.ngrok.io/",
+#elif WINDOWS
+			Authority = "https://localhost:5001",
+#endif
+            ClientId = "rei_blazor",
 			RedirectUri = "reimaui://",
 			Scope = "openid profile esperanto",
 			Browser = sp.GetRequiredService<WebAuthenticationBrowser>()

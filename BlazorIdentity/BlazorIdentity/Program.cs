@@ -11,7 +11,7 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 //builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:9001") });
 
 builder.Services.AddHttpClient<IEtiquetaDataService, EtiquetaDataService>(client => client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress));
-builder.Services.AddHttpClient(Microsoft.Extensions.Options.Options.DefaultName, cl =>
+builder.Services.AddHttpClient("teste", cl =>
 {
     cl.BaseAddress = new Uri("https://localhost:9001/r2glass/");
 })
@@ -20,13 +20,13 @@ builder.Services.AddHttpClient(Microsoft.Extensions.Options.Options.DefaultName,
         var m_handler = sp.GetService<AuthorizationMessageHandler>()
         .ConfigureHandler(
             authorizedUrls: new[] { "https://localhost:9001" },
-            scopes: new[] { "esperanto" }
+            scopes: new[] { "openid", "profile", "esperanto" }
         );
 
         return m_handler;
     });
 
-builder.Services.AddScoped(sp => sp.GetService<IHttpClientFactory>().CreateClient(Microsoft.Extensions.Options.Options.DefaultName));
+builder.Services.AddScoped(sp => sp.GetService<IHttpClientFactory>().CreateClient("teste"));
 
 builder.Services.AddOidcAuthentication(options =>
 {
