@@ -1,5 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
-using REI_MAUI.Data;
+﻿using Maui_Lib.Services;
+using Microsoft.Extensions.Logging;
+using REI_MAUI.Services;
 
 namespace REI_MAUI;
 
@@ -21,9 +22,8 @@ public static class MauiProgram
 		builder.Services.AddBlazorWebViewDeveloperTools();
 		builder.Logging.AddDebug();
 #endif
+        builder.Services.AddScoped<IEtiquetaDataService, EtiquetaDataService>();
 
-		builder.Services.AddSingleton<WeatherForecastService>();
-
-		return builder.Build();
+        return builder.Build();
 	}
 }

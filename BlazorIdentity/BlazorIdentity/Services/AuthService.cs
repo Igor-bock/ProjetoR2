@@ -1,4 +1,5 @@
-﻿using BlazorIdentity.Models;
+﻿using Maui_Lib.Models;
+using Maui_Lib.Services;
 using System.Net.Http.Json;
 
 namespace BlazorIdentity.Services;

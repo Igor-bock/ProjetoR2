@@ -2,7 +2,7 @@
 
 public static class Constantes
 {
-    public const string C_EnderecoLocalhost = "http://localhost:44316";
+    public const string C_EnderecoLocalhost = "http://10.0.0.86:44316";
     public const string C_EnderecoClientes = "ReiglassSOAP.asmx/CM_ObterClientes";
     public const string C_EnderecoClientePorNome = "ReiglassSOAP.asmx/CM_ObterClientePorNome";
     public const string C_EnderecoSalvarCliente = "ReiglassSOAP.asmx/CM_SalvarCliente";

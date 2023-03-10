@@ -1,4 +1,4 @@
-﻿using BlazorIdentity.Models;
+﻿using Maui_Lib.Models;
 using IdentityModel.Client;
 using System.Text.Json;
 

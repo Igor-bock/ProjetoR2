@@ -1,0 +1,119 @@
+﻿@page "/fetchdata"
+@using Maui_Lib.Models;
+@using Maui_Lib.Services;
+@using IdentityModel.Client;
+@using System.Security.Claims;
+@using System.Text.Json;
+@using Microsoft.AspNetCore.Authorization;
+@inject HttpClient Http
+@attribute [Authorize]
+
+<PageTitle>Weather forecast</PageTitle>
+
+<h1>Weather forecast</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+@if (forecasts == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Temp. (C)</th>
+                <th>Temp. (F)</th>
+                <th>Summary</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var forecast in forecasts)
+            {
+                <tr>
+                    <td>@forecast.Date.ToShortDateString()</td>
+                    <td>@forecast.TemperatureC</td>
+                    <td>@forecast.TemperatureF</td>
+                    <td>@forecast.Summary</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@if (clientes == null)
+{
+    <p><em>Carregando...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>E-mail</th>
+                <th>Bairro</th>
+                <th>Cidade</th>
+                <th>CEP</th>
+                <th>Endereço</th>
+                <th>Imagem</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cliente in clientes)
+            {
+                <tr>
+                    <td>@cliente.cd_codigo</td>
+                    <td>@cliente.ds_nome</td>
+                    <td>@cliente.ds_fone</td>
+                    <td>@cliente.ds_email</td>
+                    <td>@cliente.ds_bairro</td>
+                    <td>@cliente.ds_cidade</td>
+                    <td>@cliente.ds_cep</td>
+                    <td>@cliente.ds_endereco</td>
+                    <td>@cliente.ds_imagem</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    //private string c_Token;
+
+    private WeatherForecast[]? forecasts;
+    private List<Cliente>? clientes;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var m_resultado = await Http.GetAsync("clientes");
+        clientes = JsonSerializer.Deserialize<List<Cliente>>(await m_resultado.Content.ReadAsStringAsync());
+
+        //var m_state = await StateProvider.GetAuthenticationStateAsync();
+        //var m_nome = m_state.User.Identity.Name;
+        //clientes = new List<Cliente>();
+        //Http.BaseAddress = new Uri("https://localhost:5001");
+        //var m_tokenService = new TokenService(Http);
+        //var m_clientes = await m_tokenService.CM_GetClientesAsync(c_Token);
+        //clientes = m_clientes.ToArray();
+        //var m_xml = m_response.Content.ReadAsStream();
+        //var m_texto = await m_response.Content.ReadAsStringAsync();
+        //clientes = new System.Xml.Serialization.XmlSerializer(typeof(Cliente[])).Deserialize(m_xml) as Cliente[];
+        //forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("sample-data/weather.json");
+    }
+
+    public class WeatherForecast
+    {
+        public DateOnly Date { get; set; }
+
+        public int TemperatureC { get; set; }
+
+        public string? Summary { get; set; }
+
+        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    }
+}
