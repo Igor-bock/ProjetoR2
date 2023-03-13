@@ -121,10 +121,27 @@ public static class InMemoryConfiguracao
                     IdentityServerConstants.StandardScopes.OfflineAccess,
                     "esperanto"
                 },
-                RedirectUris = { "https://localhost:7178/authentication/login-callback", "reimaui://" },
+                RedirectUris = { "https://localhost:7178/authentication/login-callback" },
                 PostLogoutRedirectUris = { "https://localhost:7178/authentication/logout-callback" }
             },
-            new Client
+			new Client
+			{
+				ClientId = "rei_maui",
+				AllowedGrantTypes = GrantTypes.Code,
+				RequirePkce = true,
+				RequireClientSecret = false,
+				AllowedCorsOrigins = { "https://0.0.0.0" },//"reimaui://",
+				AllowedScopes =
+				{
+					IdentityServerConstants.StandardScopes.OpenId,
+					IdentityServerConstants.StandardScopes.Profile,
+					IdentityServerConstants.StandardScopes.OfflineAccess,
+					"esperanto"
+				},
+				RedirectUris = { "reimaui://" },
+				PostLogoutRedirectUris = { "reimaui://" }
+			},
+			new Client
             {
                 AllowedGrantTypes = GrantTypes.ClientCredentials,
                 ClientId = "rei_api",

@@ -42,7 +42,7 @@ public static class MauiProgram
 			Browser = sp.GetRequiredService<WebAuthenticationBrowser>()
 		}));
 		builder.Services.AddSingleton<AccessTokenHttpMessageHandler>();
-		builder.Services.AddTransient<HttpClient>(sp =>
+		builder.Services.AddTransient(sp =>
 			new HttpClient(sp.GetRequiredService<AccessTokenHttpMessageHandler>())
 			{
 				BaseAddress = new Uri("https://localhost:9001")
