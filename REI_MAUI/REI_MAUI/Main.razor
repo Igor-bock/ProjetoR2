@@ -1,11 +1,26 @@
-﻿<Router AppAssembly="@typeof(Main).Assembly">
-    <Found Context="routeData">
-        <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
-        <FocusOnNavigate RouteData="@routeData" Selector="h1" />
-    </Found>
-    <NotFound>
-        <LayoutView Layout="@typeof(MainLayout)">
-            <p role="alert">Sorry, there's nothing at this address.</p>
-        </LayoutView>
-    </NotFound>
+﻿@using Microsoft.AspNetCore.Components.Authorization
+@using rei_bibliotecaRazor.Shared
+
+<Router AppAssembly="@typeof(Main).Assembly" AdditionalAssemblies="new[] {typeof(rei_bibliotecaRazor.Shared.MainLayout).Assembly}">
+	<Found Context="routeData">
+		<AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(rei_bibliotecaRazor.Shared.MainLayout)">
+			<NotAuthorized>
+				@if (context.User.Identity?.IsAuthenticated != true)
+				{
+					<RedirectToLogin />
+				}
+				else
+				{
+					<p role="alert">You are not authorized to access this resource.</p>
+				}
+			</NotAuthorized>
+		</AuthorizeRouteView>
+		<FocusOnNavigate RouteData="@routeData" Selector="h1" />
+	</Found>
+	<NotFound>
+			<PageTitle>Not found</PageTitle>
+			<LayoutView Layout="@typeof(rei_bibliotecaRazor.Shared.MainLayout)">
+				<p role="alert">Sorry, there's nothing at this address.</p>
+			</LayoutView>
+	</NotFound>
 </Router>

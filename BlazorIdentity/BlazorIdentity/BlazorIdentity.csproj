@@ -16,4 +16,8 @@
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.27.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\rei_bibliotecaRazor\rei_bibliotecaRazor.csproj" />
+  </ItemGroup>
+
 </Project>

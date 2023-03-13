@@ -51,7 +51,12 @@
 
     <ItemGroup>
         <PackageReference Include="IdentityModel.OidcClient" Version="5.2.1" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="7.0.3" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\rei_bibliotecaRazor\rei_bibliotecaRazor.csproj" />
     </ItemGroup>
 
     <ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionREI_MAUIHideInfoBar="True" /></VisualStudio></ProjectExtensions>

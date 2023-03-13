@@ -5,16 +5,16 @@
              x:Class="REI_MAUI.MainPage"
              BackgroundColor="{DynamicResource PageBackgroundColor}">
 
-    <ScrollView>
+    <!--<ScrollView>
         <Grid RowSpacing="25" RowDefinitions="Auto,Auto,Auto,Auto,*" Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
             <Button Text="Login" Clicked="OnLoginClicked" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"/>
         </Grid>
-    </ScrollView>
+    </ScrollView>-->
     
-    <!--<BlazorWebView x:Name="blazorWebView" HostPage="wwwroot/index.html">
+    <BlazorWebView x:Name="blazorWebView" HostPage="wwwroot/index.html">
         <BlazorWebView.RootComponents>
             <RootComponent Selector="#app" ComponentType="{x:Type local:Main}" />
         </BlazorWebView.RootComponents>
-    </BlazorWebView>-->
+    </BlazorWebView>
 
 </ContentPage>

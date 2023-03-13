@@ -1,4 +1,6 @@
 ﻿using IdentityModel.OidcClient;
+using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 using Microsoft.Extensions.Logging;
 using REI_MAUI.Data;
 
@@ -45,6 +47,22 @@ public static class MauiProgram
 			{
 				BaseAddress = new Uri("https://localhost:9001")
 			});
+
+		builder.Services.AddOidcAuthentication(options =>
+		{
+			options.ProviderOptions.Authority = "https://localhost:5001";
+			options.ProviderOptions.ClientId = "rei_blazor";
+			options.ProviderOptions.DefaultScopes.Add("openid");
+			options.ProviderOptions.DefaultScopes.Add("profile");
+			options.ProviderOptions.DefaultScopes.Add("esperanto");
+			options.ProviderOptions.PostLogoutRedirectUri = "reimaui://authentication/logout-callback";
+			options.ProviderOptions.RedirectUri = "reimaui://authentication/login-callback";
+			options.ProviderOptions.ResponseType = "code";
+		});
+		//builder.Services.AddAuthorizationCore();
+		//builder.Services.AddScoped<CustomAuthenticationStateProvider>();
+		//builder.Services.AddScoped<AuthenticationStateProvider>(s => s.GetRequiredService<CustomAuthenticationStateProvider>());
+		//builder.Services.AddScoped<IRemoteAuthenticationService, ();
 
 		return builder.Build();
 	}
