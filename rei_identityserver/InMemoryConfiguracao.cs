@@ -119,6 +119,7 @@ public static class InMemoryConfiguracao
                     IdentityServerConstants.StandardScopes.OpenId,
                     IdentityServerConstants.StandardScopes.Profile,
                     IdentityServerConstants.StandardScopes.OfflineAccess,
+                    "roles",
                     "esperanto"
                 },
                 RedirectUris = { "https://localhost:7178/authentication/login-callback" },

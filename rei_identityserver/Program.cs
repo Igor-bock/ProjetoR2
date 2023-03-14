@@ -68,8 +68,8 @@ builder.Services.AddIdentity<Usuario, IdentityRole>(options =>
     options.Lockout.MaxFailedAccessAttempts = 3;
 })
     .AddEntityFrameworkStores<ApplicationContext>()
-    .AddDefaultTokenProviders()
-    .AddTokenProvider<ConfirmarEmailTokenProvider<Usuario>>("emailconfirmation");
+    .AddDefaultTokenProviders();
+    //.AddTokenProvider<ConfirmarEmailTokenProvider<Usuario>>("emailconfirmation");
 
 builder.Services.AddIdentityServer()
     .AddAspNetIdentity<Usuario>()
